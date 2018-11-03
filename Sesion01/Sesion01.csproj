@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Product.cs" />
     <Compile Include="ProductFixPrice.cs" />
+    <Compile Include="ProductVariablePrice.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

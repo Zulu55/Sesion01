@@ -8,16 +8,29 @@
         static void Main(string[] args)
         {
             var products = new List<Product>();
-            var product1 = new ProductFixPrice(100, "Leche", 2300M, .17f);
-            var product2 = new ProductFixPrice(200, "Pan", 1200M, .17f);
+            var product1 = new ProductFixPrice(100, "Leche", 2300m, .17f);
+            var product2 = new ProductFixPrice(200, "Pan", 1200m, .17f);
+            var product3 = new ProductVariablePrice(300, "Mango Tomy", "Kilo", 5200m, 1.543f, .1f);
+            var product4 = new ProductVariablePrice(400, "Cable UTP-6", "Metros", 8000m, 50.5f, .19f);
 
             products.Add(product1);
             products.Add(product2);
+            products.Add(product3);
+            products.Add(product4);
+
+            decimal value = 0;
+            decimal tax = 0;
 
             foreach (var product in products)
             {
                 Console.WriteLine(product);
+                value += product.GetPrice();
+                tax += product.GetTax();
             }
+
+            Console.WriteLine($"==========================================");
+            Console.WriteLine($"TOTAL TO PAY..............: {value,12:C2}");
+            Console.WriteLine($"TOTAL TAX.................: {tax,12:C2}");
 
             Console.WriteLine("Press ENTER to finish...");
             Console.ReadKey();
